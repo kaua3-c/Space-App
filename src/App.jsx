@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import EstilosGlobais from "./componentes/EstilosGlobais";
 import Cabecalho from "./componentes/Cabecalho";
-import BarraLateral from "./componentes/BarraLateral";
+import BarraLateral from "./componentes/barraLateral";
 import Banner from "./componentes/Banner";
 import Galeria from "./componentes/Galeria";
 import fotos from "./fotos.json";
