@@ -1,38 +1,42 @@
-import Titulo from '../Titulo'
-import Tags from '../Tags'
-import styled from 'styled-components'
-import Populares from './Populares'
-import Imagem from './imagem'
+import Titulo from "../Titulo";
+import Tags from "../Tags";
+import styled from "styled-components";
+import Populares from "./Populares";
+import Imagem from "./imagem";
 const GaleriaContainer = styled.div`
-    display: flex;
-`
+  display: flex;
+`;
 
 const SecaoFluida = styled.section`
-    flex-grow:1;
-`
+  flex-grow: 1;
+`;
 const ImagensContainer = styled.section`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 24px;
-`
-const Galeria =({fotos = [], aoFotoSelecionada}) =>{
-    return(
-        <>
-            <Tags/>
-            <GaleriaContainer>
-                <SecaoFluida>    
-                    <Titulo>Navegue pela galeria</Titulo>
-                    <ImagensContainer>
-                        {fotos.map(foto => <Imagem 
-                        aoZoomSolicitado={aoFotoSelecionada}
-                        key={foto.id}
-                        foto={foto}/>)}
-                    </ImagensContainer>
-                </SecaoFluida>
-                <Populares/>
-            </GaleriaContainer>
-        </>
-    )
-}
-export default Galeria
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+`;
+const Galeria = ({ fotos = [], setTag, aoFotoSelecionada, aoAlternarFavorito }) => {
+  return (
+    <>
+      <Tags setTag={setTag} />
+      <GaleriaContainer>
+        <SecaoFluida>
+          <Titulo>Navegue pela galeria</Titulo>
+          <ImagensContainer>
+            {fotos.map((foto) => (
+              <Imagem
+                aoZoomSolicitado={aoFotoSelecionada}
+                aoAlternarFavorito={aoAlternarFavorito}
+                key={foto.id}
+                foto={foto}
+              />
+            ))}
+          </ImagensContainer>
+        </SecaoFluida>
+        <Populares />
+      </GaleriaContainer>
+    </>
+  );
+};
+export default Galeria;
